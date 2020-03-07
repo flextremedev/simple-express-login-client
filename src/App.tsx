@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { Input, Button } from "antd";
 import "antd/dist/antd.css";
+import "./App.scss";
 function App() {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -27,11 +28,13 @@ function App() {
     };
     return (
         <div className="App">
-            <Input size="large" placeholder="Username" value={username} onChange={handleChangeUsername} />
-            <Input.Password size="large" placeholder="Password" value={password} onChange={handleChangePassword} />
-            <Button type="primary" onClick={login}>
-                Login
-            </Button>
+            <section>
+                <Input size="large" placeholder="Username" value={username} onChange={handleChangeUsername} />
+                <Input.Password size="large" placeholder="Password" value={password} onChange={handleChangePassword} />
+                <Button type="primary" onClick={login} size="large">
+                    Login
+                </Button>
+            </section>
         </div>
     );
 }
