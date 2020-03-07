@@ -14,9 +14,7 @@ function App() {
     const login = () => {
         fetch("http://localhost:8080/login", {
             method: "POST",
-            mode: "no-cors",
             headers: {
-                Accept: "application/json",
                 "Content-Type": "application/json"
             },
             credentials: "include",
