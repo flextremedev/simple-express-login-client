@@ -1,11 +1,11 @@
-import React, { ChangeEvent } from "react";
+import React, { useEffect } from "react";
 import { Input, Button, Typography } from "antd";
 import "antd/dist/antd.css";
 import "./App.scss";
 const { Title } = Typography;
 const login = async ({
   username,
-  password
+  password,
 }: {
   username: string;
   password: string;
@@ -13,18 +13,17 @@ const login = async ({
   await fetch("http://localhost:8080/login", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    credentials: "include",
     body: JSON.stringify({
       username,
-      password
-    })
+      password,
+    }),
   });
 };
 const register = async ({
   username,
-  password
+  password,
 }: {
   username: string;
   password: string;
@@ -32,13 +31,12 @@ const register = async ({
   await fetch("http://localhost:8080/register", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    credentials: "include",
     body: JSON.stringify({
       username,
-      password
-    })
+      password,
+    }),
   });
 };
 function App() {
@@ -72,6 +70,12 @@ function App() {
       setIsRegisterLoading(false);
     }
   };
+  useEffect(() => {
+    window.addEventListener("unhandledrejection", function () {
+      setIsLoginLoading(false);
+      setIsRegisterLoading(false);
+    });
+  }, []);
   return (
     <div className="App">
       <div className="form-container">
