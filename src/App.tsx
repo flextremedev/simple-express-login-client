@@ -1,12 +1,19 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "antd/dist/antd.css";
 import "./App.scss";
-import { LoginForm } from "./login/components/LoginForm";
-import { login } from "./login/use-cases/login";
+import { LoginPage } from "./login/components/LoginPage";
+import { Router } from "@reach/router";
+import { HomePage } from "./home/components/HomePage";
+import { ProtectedRoute } from "./common/components/ProtectedRoute";
+import { RegisterPage } from "./register/components/RegisterPage";
 const App = () => {
   return (
     <div className="App">
-      <LoginForm login={login} />
+      <Router component={Fragment}>
+        <ProtectedRoute path="/" component={HomePage} />
+        <LoginPage path={"login"} />
+        <RegisterPage path={"register"} />
+      </Router>
     </div>
   );
 };

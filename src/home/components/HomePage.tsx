@@ -1,2 +1,3 @@
 import React from "react";
-export const HomePage = () => <div>Home</div>;
+import { RouteComponentProps } from "@reach/router";
+export const HomePage: React.FC<RouteComponentProps> = () => <div>Home</div>;

@@ -1,4 +1,8 @@
 import React from "react";
-export const RegisterPage = () => {
-  return <div>Register page</div>;
+import { RouteComponentProps } from "@reach/router";
+import { RegisterForm } from "./RegisterForm";
+import { register } from "../use-cases/register";
+type RegisterPageProps = RouteComponentProps;
+export const RegisterPage: React.FC<RegisterPageProps> = () => {
+  return <RegisterForm register={register} />;
 };

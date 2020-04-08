@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Input, Button } from "antd";
 import { Form } from "../../common/components/Form";
 import { Credentials } from "../../common/types/Credentials";
+import { Link } from "@reach/router";
 type RegisterFormProps = {
   register: (credentials: Credentials) => Promise<void>;
 };
@@ -56,9 +57,11 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ register }) => {
           block>
           Register
         </Button>
-        <Button className="btn-text" type="link" size="large" block>
-          Already have an account?
-        </Button>
+        <Link to="/login">
+          <Button className="btn-text" type="link" size="large" block>
+            Already have an account?
+          </Button>
+        </Link>
       </form>
     </Form>
   );

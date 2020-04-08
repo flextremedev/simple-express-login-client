@@ -10,8 +10,10 @@
     rgba(103, 125, 233, 1) 0%,
     rgba(24, 144, 255, 1) 100%
   );
-  padding: 100px 0px 100px 0px;
 }
 .margin-bottom {
   margin-bottom: 15px;
+}
+div[tabindex] {
+  height: 100%;
 }

@@ -1,4 +1,8 @@
 import React from "react";
-export const LoginPage = () => {
-  return <div>Login Page</div>;
+import { LoginForm } from "./LoginForm";
+import { login } from "../use-cases/login";
+import { RouteComponentProps } from "@reach/router";
+type LoginPageProps = RouteComponentProps;
+export const LoginPage: React.FC<LoginPageProps> = () => {
+  return <LoginForm login={login} />;
 };
