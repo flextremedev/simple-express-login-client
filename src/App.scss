@@ -4,7 +4,12 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background: #eaeaea;
+  background: rgb(24, 144, 255);
+  background: linear-gradient(
+    30deg,
+    rgba(103, 125, 233, 1) 0%,
+    rgba(24, 144, 255, 1) 100%
+  );
   padding: 100px 0px 100px 0px;
 }
 .margin-bottom {

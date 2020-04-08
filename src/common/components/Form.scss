@@ -18,7 +18,12 @@
   justify-content: center;
 }
 .form-left {
-  background: #1890ff;
+  background: rgb(24, 144, 255);
+  background: linear-gradient(
+    45deg,
+    rgba(103, 125, 233, 1) 0%,
+    rgba(24, 144, 255, 1) 100%
+  );
   border-radius: 5px 0px 0px 5px;
   flex: 3;
 }
