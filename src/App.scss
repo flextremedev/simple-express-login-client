@@ -10,30 +10,3 @@
 .margin-bottom {
   margin-bottom: 15px;
 }
-.form-container {
-  background: #fff;
-  width: 65%;
-  min-width: 1024px;
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09),
-    0 8px 4px rgba(0, 0, 0, 0.09), 0 16px 8px rgba(0, 0, 0, 0.06),
-    0 24px 16px rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
-}
-.form-side {
-  padding: 50px;
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 2;
-  justify-content: center;
-}
-.form-left {
-  background: #1890ff;
-  border-radius: 5px 0px 0px 5px;
-  flex: 3;
-}
-.button-group {
-  display: flex;
-}
