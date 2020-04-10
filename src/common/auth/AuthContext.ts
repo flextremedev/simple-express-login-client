@@ -6,11 +6,11 @@ export type UserSession = {
 };
 type AuthContextType = {
   session?: UserSession;
-  isAuthenticated: boolean;
+  isAuthenticated: () => boolean;
   login?: (credentials: Credentials, callback?: () => void) => Promise<void>;
   logout?: (callback?: () => void) => Promise<void>;
   register?: (credentials: Credentials, callback?: () => void) => Promise<void>;
 };
 export const AuthContext = React.createContext<AuthContextType>({
-  isAuthenticated: false,
+  isAuthenticated: () => false,
 });

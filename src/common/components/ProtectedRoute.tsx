@@ -9,7 +9,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   ...rest
 }) => {
   const { isAuthenticated } = useAuth();
-  return isAuthenticated ? (
+  return isAuthenticated() ? (
     <Component {...rest} />
   ) : (
     <Redirect from="" to="/login" noThrow />

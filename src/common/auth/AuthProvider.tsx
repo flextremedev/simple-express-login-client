@@ -8,12 +8,19 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [session, setSession] = React.useState<UserSession | undefined>(
     undefined
   );
-  const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(false);
+  const isAuthenticated = () => {
+    if (!session) {
+      return false;
+    }
+    return session.expires > new Date().getTime();
+  };
   const login = async (credentials: Credentials, callback?: () => void) => {
     try {
-      // await loginUseCase(credentials);
-      await Promise.resolve();
-      setIsAuthenticated(true);
+      const result = await loginUseCase(credentials);
+      setSession({
+        ...result,
+        expires: result.expiresIn * 1000 + new Date().getTime(),
+      });
       if (callback) {
         callback();
       }
@@ -23,9 +30,11 @@ export const AuthProvider: React.FC = ({ children }) => {
   };
   const register = async (credentials: Credentials, callback?: () => void) => {
     try {
-      // await registerUseCase(credentials);
-      await Promise.resolve();
-      setIsAuthenticated(true);
+      const result = await registerUseCase(credentials);
+      setSession({
+        ...result,
+        expires: result.expiresIn * 1000 + new Date().getTime(),
+      });
       if (callback) {
         callback();
       }
@@ -36,7 +45,6 @@ export const AuthProvider: React.FC = ({ children }) => {
   const logout = async (callback?: () => void) => {
     // TODO: logout request to server
     await Promise.resolve();
-    setIsAuthenticated(false);
   };
   return (
     <AuthContext.Provider
