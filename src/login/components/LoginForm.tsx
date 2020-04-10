@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
 import { Input, Button } from "antd";
 import { Form } from "../../common/components/Form";
-import { Credentials } from "../../common/types/Credentials";
-import { Link } from "@reach/router";
-type LoginFormProps = {
-  login: (credentials: Credentials) => Promise<void>;
-};
-export const LoginForm: React.FC<LoginFormProps> = ({ login }) => {
+import { Link, navigate } from "@reach/router";
+import { useAuth } from "../../common/auth/useAuth";
+export const LoginForm: React.FC = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [isLoginLoading, setIsLoginLoading] = React.useState(false);
+  const { login } = useAuth();
   const handleChangeUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
   const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+  // TODO: add referer
+  const navigateToHome = () => navigate("/");
   const handleLogin = async () => {
     setIsLoginLoading(true);
-    await login({ username, password });
+    if (login) {
+      await login({ username, password }, navigateToHome);
+    }
     try {
     } catch (e) {
       console.error(e);

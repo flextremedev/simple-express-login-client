@@ -1,25 +1,27 @@
 import React, { useEffect } from "react";
 import { Input, Button } from "antd";
 import { Form } from "../../common/components/Form";
-import { Credentials } from "../../common/types/Credentials";
-import { Link } from "@reach/router";
-type RegisterFormProps = {
-  register: (credentials: Credentials) => Promise<void>;
-};
-export const RegisterForm: React.FC<RegisterFormProps> = ({ register }) => {
+import { Link, navigate } from "@reach/router";
+import { useAuth } from "../../common/auth/useAuth";
+export const RegisterForm: React.FC = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [isRegisterLoading, setIsRegisterLoading] = React.useState(false);
+  const { register } = useAuth();
   const handleChangeUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
   const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+  // TODO: add referer
+  const navigateToHome = () => navigate("/");
   const handleRegister = async () => {
     setIsRegisterLoading(true);
     try {
-      await register({ username, password });
+      if (register) {
+        await register({ username, password }, navigateToHome);
+      }
     } catch (e) {
       console.error(e);
     } finally {
