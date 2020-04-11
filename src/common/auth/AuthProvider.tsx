@@ -1,6 +1,7 @@
 import React from "react";
 import { Credentials } from "../types/Credentials";
 import { login as loginUseCase } from "../../login/use-cases/login";
+import { logout as logoutUseCase } from "../../login/use-cases/logout";
 import { register as registerUseCase } from "../../register/use-cases/register";
 import { AuthContext, UserSession } from "./AuthContext";
 
@@ -42,9 +43,13 @@ export const AuthProvider: React.FC = ({ children }) => {
       console.error(e);
     }
   };
-  const logout = async (callback?: () => void) => {
-    // TODO: logout request to server
-    await Promise.resolve();
+  const logout = async () => {
+    try {
+      await logoutUseCase();
+      setSession(undefined);
+    } catch (e) {
+      console.error(e);
+    }
   };
   return (
     <AuthContext.Provider

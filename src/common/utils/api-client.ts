@@ -15,6 +15,7 @@ export const apiClient = async (
     body?: RequestBody;
     headers?: Partial<RequestHeaders>;
     credentials?: "include" | "omit" | "same-origin";
+    method?: "GET" | "POST";
   } = {}
 ) => {
   const headers: RequestHeaders = {
@@ -37,7 +38,6 @@ export const apiClient = async (
   );
   const data = await result.json();
   if (result.ok) {
-    console.log({ result, data });
     return data;
   }
   return Promise.reject(data);
