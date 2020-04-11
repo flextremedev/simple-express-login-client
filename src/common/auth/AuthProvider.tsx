@@ -20,7 +20,6 @@ export const AuthProvider: React.FC = ({ children }) => {
       const result = await loginUseCase(credentials);
       setSession({
         ...result,
-        expires: result.expiresIn * 1000 + new Date().getTime(),
       });
       if (callback) {
         callback();
@@ -34,7 +33,6 @@ export const AuthProvider: React.FC = ({ children }) => {
       const result = await registerUseCase(credentials);
       setSession({
         ...result,
-        expires: result.expiresIn * 1000 + new Date().getTime(),
       });
       if (callback) {
         callback();
