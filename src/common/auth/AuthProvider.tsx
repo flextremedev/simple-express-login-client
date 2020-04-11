@@ -15,28 +15,22 @@ export const AuthProvider: React.FC = ({ children }) => {
     }
     return session.expires > new Date().getTime();
   };
-  const login = async (credentials: Credentials, callback?: () => void) => {
+  const login = async (credentials: Credentials) => {
     try {
       const result = await loginUseCase(credentials);
       setSession({
         ...result,
       });
-      if (callback) {
-        callback();
-      }
     } catch (e) {
       console.error(e);
     }
   };
-  const register = async (credentials: Credentials, callback?: () => void) => {
+  const register = async (credentials: Credentials) => {
     try {
       const result = await registerUseCase(credentials);
       setSession({
         ...result,
       });
-      if (callback) {
-        callback();
-      }
     } catch (e) {
       console.error(e);
     }

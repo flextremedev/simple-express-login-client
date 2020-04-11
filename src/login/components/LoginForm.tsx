@@ -19,7 +19,8 @@ export const LoginForm: React.FC = () => {
   const handleLogin = async () => {
     setIsLoginLoading(true);
     if (login) {
-      await login({ username, password }, navigateToHome);
+      await login({ username, password });
+      navigateToHome();
     }
     try {
     } catch (e) {

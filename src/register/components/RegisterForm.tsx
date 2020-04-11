@@ -20,7 +20,8 @@ export const RegisterForm: React.FC = () => {
     setIsRegisterLoading(true);
     try {
       if (register) {
-        await register({ username, password }, navigateToHome);
+        await register({ username, password });
+        navigateToHome();
       }
     } catch (e) {
       console.error(e);
