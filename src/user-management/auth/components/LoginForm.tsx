@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Input, Button } from "antd";
-import { Form } from "../../common/components/Form";
 import { Link, navigate } from "@reach/router";
-import { useAuth } from "../../common/auth/useAuth";
+import { useAuth } from "../hooks/useAuth";
+import { Form } from "../../../common/components/Form";
 export const LoginForm: React.FC = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");

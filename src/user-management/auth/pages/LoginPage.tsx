@@ -1,6 +1,6 @@
 import React from "react";
-import { LoginForm } from "./LoginForm";
 import { RouteComponentProps } from "@reach/router";
+import { LoginForm } from "../components/LoginForm";
 type LoginPageProps = RouteComponentProps;
 export const LoginPage: React.FC<LoginPageProps> = () => {
   return <LoginForm />;

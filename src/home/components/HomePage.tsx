@@ -1,7 +1,7 @@
 import React from "react";
 import { RouteComponentProps } from "@reach/router";
-import { useAuth } from "../../common/auth/useAuth";
 import { Button } from "antd";
+import { useAuth } from "../../user-management/auth/hooks/useAuth";
 export const HomePage: React.FC<RouteComponentProps> = () => {
   const { logout } = useAuth();
   const handleLogout = () => {

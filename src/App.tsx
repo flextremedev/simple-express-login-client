@@ -1,12 +1,12 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./App.scss";
-import { LoginPage } from "./login/components/LoginPage";
 import { Router } from "@reach/router";
 import { HomePage } from "./home/components/HomePage";
 import { ProtectedRoute } from "./common/components/ProtectedRoute";
-import { RegisterPage } from "./register/components/RegisterPage";
 import { AppProviders } from "./common/components/AppProviders";
+import { LoginPage } from "./user-management/auth/pages/LoginPage";
+import { RegisterPage } from "./user-management/auth/pages/RegisterPage";
 const App = () => {
   return (
     <AppProviders>
