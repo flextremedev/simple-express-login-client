@@ -1,7 +1,6 @@
 import React from "react";
 import { Layout, Button } from "antd";
 import { useAuth } from "../../user-management/auth/hooks/useAuth";
-import { Link } from "@reach/router";
 import "./Page.scss";
 
 const { Header, Content } = Layout;
