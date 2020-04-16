@@ -20,6 +20,18 @@
   flex-flow: column nowrap;
 }
 
+.ant-btn-background-ghost.ant-btn-link:active,
+.ant-btn-background-ghost.ant-btn-link:hover,
+.ant-btn-background-ghost.ant-btn-link:focus {
+  color: #fff;
+}
+.ant-btn-background-ghost.ant-btn-link:hover,
+.ant-btn-background-ghost.ant-btn-link:focus {
+  span {
+    text-decoration: underline;
+  }
+}
+
 .site-layout-content {
   background: #fff;
   padding: 40px;
