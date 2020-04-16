@@ -1,0 +1,35 @@
+.layout {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.ant-layout-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: rgb(24, 144, 255);
+  background: linear-gradient(
+    30deg,
+    rgba(24, 144, 255, 1) 0%,
+    rgba(103, 125, 233, 1) 100%
+  );
+}
+.ant-layout-content {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.site-layout-content {
+  background: #fff;
+  padding: 40px;
+  height: 100%;
+  flex: 1;
+}
+
+.logo {
+  width: 100px;
+  height: 40px;
+  float: left;
+  background: red;
+}

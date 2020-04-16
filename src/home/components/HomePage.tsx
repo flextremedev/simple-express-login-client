@@ -1,17 +1,11 @@
 import React from "react";
 import { RouteComponentProps } from "@reach/router";
-import { Button } from "antd";
-import { useAuth } from "../../user-management/auth/hooks/useAuth";
+import { Page } from "../../common/components/Page";
+import Title from "antd/lib/typography/Title";
 export const HomePage: React.FC<RouteComponentProps> = () => {
-  const { logout } = useAuth();
-  const handleLogout = () => {
-    if (logout) {
-      logout();
-    }
-  };
   return (
-    <div>
-      Home<Button onClick={handleLogout}>Logout</Button>
-    </div>
+    <Page>
+      <Title level={1}>{"Welcome"}</Title>
+    </Page>
   );
 };
