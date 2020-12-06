@@ -7,15 +7,19 @@ import { ProtectedRoute } from "./common/components/ProtectedRoute";
 import { AppProviders } from "./common/components/AppProviders";
 import { LoginPage } from "./user-management/auth/pages/LoginPage";
 import { RegisterPage } from "./user-management/auth/pages/RegisterPage";
+import { ReactQueryDevtools } from "react-query-devtools";
 const App = () => {
   return (
-    <AppProviders>
-      <Router className="App">
-        <ProtectedRoute path="/" component={HomePage} />
-        <LoginPage path={"login"} />
-        <RegisterPage path={"register"} />
-      </Router>
-    </AppProviders>
+    <>
+      <AppProviders>
+        <Router className="App">
+          <ProtectedRoute path="/" component={HomePage} />
+          <LoginPage path={"login"} />
+          <RegisterPage path={"register"} />
+        </Router>
+      </AppProviders>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </>
   );
 };
 
